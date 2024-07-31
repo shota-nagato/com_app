@@ -1,0 +1,25 @@
+@layer utilities {
+  .form-group {
+    @apply mb-4;
+  }
+
+  .form-group label {
+    @apply block text-gray-700 text-sm font-bold mb-2;
+  }
+
+  .form-group input {
+    @apply shadow border-gray-200 rounded w-full;
+  }
+
+  .checkbox-group {
+    @apply flex gap-2 items-center;
+  }
+
+  .checkbox-group label {
+    @apply text-gray-700 text-sm font-bold;
+  }
+
+  .checkbox-group input {
+    @apply shadow border-gray-200;
+  }
+}
