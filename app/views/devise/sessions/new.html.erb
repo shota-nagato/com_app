@@ -20,14 +20,14 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Log in", class: "mt-2 btn btn-primary" %>
+          <%= f.submit t(".sign_in"), class: "mt-2 btn btn-primary" %>
         </div>
       </div>
     <% end %>
   </div>
 
   <p class="mt-8 text-center text-sm text-gray-600">
-    Already have an account?<br>
-    <%= link_to "Sign up", new_user_registration_path, class: "font-medium text-blue-600 hover:text-blue-800" %>
+    アカウントをお持ちではありませんか？
+    <%= link_to "アカウント登録", new_user_registration_path, class: "font-medium text-blue-600 hover:text-blue-800" %>
   </p>
 </div>
