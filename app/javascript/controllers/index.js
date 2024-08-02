@@ -7,4 +7,8 @@ import Notification from "@stimulus-components/notification"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
 application.register('notification', Notification)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)

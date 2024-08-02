@@ -4,6 +4,6 @@
   }
 
   .btn-primary {
-    @apply text-white bg-blue-500 hover:bg-blue-700;
+    @apply text-white bg-primary hover:opacity-90;
   }
 }

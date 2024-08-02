@@ -11,7 +11,17 @@
   </head>
 
   <body>
-    <%= render "shared/flash", flash: flash %>
-    <%= yield %>
+    <div class="flex h-screen">
+      <% if user_signed_in? %>
+        <%= render "layouts/sidebar" %>
+      <% end %>
+      <div class="flex flex-col flex-1">
+        <%= render "layouts/navbar" %>
+        <%= render "shared/flash", flash: flash %>
+        <main class="px-4">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
   </body>
 </html>
