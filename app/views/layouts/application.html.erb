@@ -16,7 +16,9 @@
         <%= render "layouts/sidebar" %>
       <% end %>
       <div class="flex flex-col flex-1">
-        <%= render "layouts/navbar" %>
+        <% if user_signed_in? %>
+          <%= render "layouts/navbar" %>
+        <% end %>
         <%= render "shared/flash", flash: flash %>
         <main class="px-4">
           <%= yield %>
