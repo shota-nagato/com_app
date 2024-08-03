@@ -3,6 +3,10 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  namespace :account do
+    resource :password
+  end
+
   authenticate :user do
     root to: "dashboard#show", as: :user_root
   end
