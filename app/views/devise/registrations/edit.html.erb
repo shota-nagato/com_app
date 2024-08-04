@@ -9,6 +9,11 @@
       <%= f.text_field :name %>
     </div>
 
+    <div class="file-group">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar, accept: "image/*" %>
+    </div>
+
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -1,5 +1,5 @@
 @layer utilities {
-  .form-group {
+  .form-group, .file-group {
     @apply mb-4;
   }
 
@@ -21,5 +21,13 @@
 
   .checkbox-group input {
     @apply shadow border-gray-200;
+  }
+
+  .file-group label {
+    @apply text-gray-700 text-sm font-bold mb-2;
+  }
+
+  .file-group input {
+    @apply block w-full text-sm border cursor-pointer file:cursor-pointer rounded-md file:mr-4 file:rounded-l-md file:border-0 bg-gray-50 file:bg-primary file:py-2.5 file:px-4 file:text-sm file:font-semibold file:text-white hover:file:bg-primary focus:outline-none disabled:pointer-events-none disabled:opacity-60;
   }
 }
