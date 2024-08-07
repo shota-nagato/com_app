@@ -1,30 +1,34 @@
-<h2 class="font-bold text-lg mb-4">プロフィール</h2>
+<% content_for :settings_block do %>
+  <h2 class="font-bold text-lg mb-4">プロフィール</h2>
 
-<div class="shadow p-4 rounded-sm">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="shadow p-4 rounded-sm">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
 
-    <div class="file-group">
-      <%= f.label :avatar %><br>
-      <%= f.file_field :avatar, accept: "image/*" %>
-    </div>
+      <div class="file-group">
+        <%= f.label :avatar %><br>
+        <%= f.file_field :avatar, accept: "image/*" %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div class="font-bold text-sm text-gray-700">メールの認証を行なってください。 <%= resource.unconfirmed_email %></div>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="font-bold text-sm text-gray-700">メールの認証を行なってください。 <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="flex justify-end">
+        <%= f.submit t(".update"), class: "btn btn-primary mt-4" %>
+      </div>
     <% end %>
+  </div>
+<% end %>
 
-    <div class="flex justify-end">
-      <%= f.submit t(".update"), class: "btn btn-primary mt-4" %>
-    </div>
-  <% end %>
-</div>
+<%= render "shared/settings_block" %>
