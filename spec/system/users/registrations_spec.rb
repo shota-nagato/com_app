@@ -17,12 +17,12 @@ RSpec.describe "ユーザー登録" do
         end.to change(User, :count).by(1)
 
         mail = ActionMailer::Base.deliveries.last
-        user = User.last
+        # user = User.last
         expect(mail.subject).to eq("メールアドレス確認メール")
         expect(mail.to).to eq(["user@example.com"])
 
-        confirm_url = URI.extract(mail.body.decoded).first
         # TODO: net::ERR_CONNECTION_REFUSEDが発生するため一旦コメントアウト
+        # confirm_url = URI.extract(mail.body.decoded).first
         # visit confirm_url
         # expect(page).to have_current_path new_user_session_path
         # expect(page).to have_content 'メールアドレスが確認できました'
@@ -79,11 +79,11 @@ RSpec.describe "ユーザー登録" do
         expect(page).to have_content "アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。"
 
         mail = ActionMailer::Base.deliveries.last
-        expect(mail.subject).to eq('メールアドレス確認メール')
-        expect(mail.to).to eq(['edited@example.com'])
+        expect(mail.subject).to eq("メールアドレス確認メール")
+        expect(mail.to).to eq(["edited@example.com"])
 
-        confirm_url = URI.extract(mail.body.decoded).first
         # TODO: net::ERR_CONNECTION_REFUSEDが発生するため一旦コメントアウト
+        # confirm_url = URI.extract(mail.body.decoded).first
         # visit confirm_url
         # expect(page).to have_current_path new_user_session_path
         # expect(page).to have_content 'メールアドレスが確認できました'
