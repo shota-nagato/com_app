@@ -8,12 +8,15 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
-  namespace :account do
-    resource :password
-  end
+  root to: "static#index"
 
   authenticate :user do
     root to: "dashboard#show", as: :user_root
+  end
+
+
+  namespace :account do
+    resource :password
   end
 
   resources :feeds
