@@ -1,4 +1,4 @@
-class SampleJob
+class FetchEntriesJob
   include Sidekiq::Worker
   sidekiq_options queue: :default
 
