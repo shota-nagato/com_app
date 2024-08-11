@@ -11,7 +11,7 @@ class Account::PasswordsController < ApplicationController
   def update
     if current_user.update_with_password(password_params)
       bypass_sign_in current_user
-      redirect_to account_password_path, notice: "Password updated successfully"
+      redirect_to account_password_path, notice: "パスワードを更新しました。"
     else
       render :edit, status: :unprocessable_entity
     end

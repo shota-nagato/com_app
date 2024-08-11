@@ -3,44 +3,23 @@
     学習時間とかのグラフ入れたい
   </div>
 
-  <div class="grid grid-cols-2 gap-4">
+  <div class="grid sm:grid-cols-2 gap-4">
     <div class="shadow p-4 rounded-sm">
-      <div class="font-bold">新着アウトプット</div>
-      <div class="mb-2 py-1 px-2 border-b">
-        <div class="text-sm">ここにタイトルが入ります</div>
-        <div class="flex gap-1">
-          <div class="text-xs font-medium">@username</div>
-          <div class="text-slate-500 text-xs">2024/08/02</div>
+      <div class="font-bold mb-2">新着アウトプット</div>
+      <% @entries.each do |entry| %>
+        <div class="mb-2 py-1 px-2 border-b">
+          <div class="text-sm font-bold mb-2"><%= link_to entry.title, entry.url, target: "_blank" %></div>
+          <div class="flex gap-4">
+            <div class="text-xs font-medium">by <%= entry.feed.user.name %></div>
+            <div class="text-slate-500 text-xs flex items-center gap-1">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+              </svg>
+              <%= entry.published_at.to_date %>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="mb-2 py-1 px-2 border-b">
-        <div class="text-sm">ここにタイトルが入ります</div>
-        <div class="flex gap-1">
-          <div class="text-xs font-medium">@username</div>
-          <div class="text-slate-500 text-xs">2024/08/02</div>
-        </div>
-      </div>
-      <div class="mb-2 py-1 px-2 border-b">
-        <div class="text-sm">ここにタイトルが入ります</div>
-        <div class="flex gap-1">
-          <div class="text-xs font-medium">@username</div>
-          <div class="text-slate-500 text-xs">2024/08/02</div>
-        </div>
-      </div>
-      <div class="mb-2 py-1 px-2 border-b">
-        <div class="text-sm">ここにタイトルが入ります</div>
-        <div class="flex gap-1">
-          <div class="text-xs font-medium">@username</div>
-          <div class="text-slate-500 text-xs">2024/08/02</div>
-        </div>
-      </div>
-      <div class="mb-2 py-1 px-2 border-b">
-        <div class="text-sm">ここにタイトルが入ります</div>
-        <div class="flex gap-1">
-          <div class="text-xs font-medium">@username</div>
-          <div class="text-slate-500 text-xs">2024/08/02</div>
-        </div>
-      </div>
+      <% end %>
     </div>
     <div class="shadow p-4 rounded-sm">
       <div class="font-bold">新着相談</div>
@@ -82,5 +61,3 @@
     </div>
   </div>
 </div>
-
-<%= button_to "Sign out", destroy_user_session_path, method: :delete %>

@@ -48,10 +48,14 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 
 gem "devise"
+gem "faraday"
+gem "feedjira"
+gem "sidekiq"
 
 group :development, :test do
   gem "debug", platforms: %i[mri windows]
   gem "rspec-rails"
+  gem "factory_bot_rails"
   gem "erb_lint", require: false
   gem "standard", require: false
 end

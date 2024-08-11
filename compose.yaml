@@ -29,10 +29,25 @@ services:
       - redis
   redis:
     image: redis:latest
+    command: redis-server --appendonly yes
     ports:
       - 6379:6379
     volumes:
       - redis:/data
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      PGHOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: password
+    command: bundle exec sidekiq
+    volumes:
+      - .:/com_app
+    depends_on:
+      - postgres
+      - redis
 
 volumes:
   postgres:
