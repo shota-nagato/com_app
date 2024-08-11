@@ -1,4 +1,6 @@
-<div>
-  <%= feed.title %>
-  <%= feed.url %>
+<div class="mb-4">
+  <div class="font-bold">
+    <%= feed.title %>
+  </div>
+  <%= link_to feed.url, feed.url, class: "text-sm" %>
 </div>

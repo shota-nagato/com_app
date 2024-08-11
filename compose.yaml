@@ -38,10 +38,15 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
+    environment:
+      PGHOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: password
     command: bundle exec sidekiq
     volumes:
       - .:/com_app
     depends_on:
+      - postgres
       - redis
 
 volumes:

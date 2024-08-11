@@ -1,5 +1,5 @@
 <%= content_for :settings_block do %>
-  <h2 class="font-bold text-lg mb-4">RSSフィード一覧<h2>
+  <h2 class="font-bold text-lg mb-4">RSSフィード<h2>
 
   <% if @feeds.empty? %>
     <div class="text-slate-400 text-sm">登録中のRSSフィードはありません。</div>
@@ -9,7 +9,7 @@
     </div>
   <% end %>
   <div class="flex justify-end">
-    <%= link_to "登録する", new_feed_path, class: "btn btn-primary mt-4" %>
+    <%= link_to "登録する", new_feed_path, class: "btn btn-primary" %>
   </div>
 <% end %>
 

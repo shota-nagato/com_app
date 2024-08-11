@@ -3,5 +3,5 @@ class Feed < ApplicationRecord
   validates :url, uniqueness: true
 
   belongs_to :user
-  has_many :entries dependent: :destroy
+  has_many :entries, dependent: :destroy
 end
