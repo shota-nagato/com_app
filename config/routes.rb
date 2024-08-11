@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   authenticate :user do
     root to: "dashboard#show", as: :user_root
   end
+
+  resources :feeds
 end

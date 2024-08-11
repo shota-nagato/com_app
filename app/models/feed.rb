@@ -1,5 +1,6 @@
 class Feed < ApplicationRecord
   validates :title, :url, presence: true
+  validates :url, uniqueness: true
 
-  belogns_to :user
+  belongs_to :user
 end

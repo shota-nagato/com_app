@@ -3,6 +3,7 @@ ja:
     attributes:
       models:
         user: ユーザー
+        feed: フィード
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -29,6 +30,9 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+      feed:
+        title: タイトル
+        url: フィードURL
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

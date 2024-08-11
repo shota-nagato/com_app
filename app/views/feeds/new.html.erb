@@ -1,0 +1,20 @@
+<%= content_for :settings_block do %>
+  <h2 class="font-bold text-lg mb-4">RSS<h2>
+
+  <%= form_with(model: @feed, html: { class: "p-4" }) do |form| %>
+    <div class="form-group">
+      <%= form.label :url %>
+      <%= form.text_field :url %>
+    </div>
+
+    <% if @feed.present? %>
+      <%= render "shared/error_messages", resource: @feed %>
+    <% end %>
+
+    <div class="flex justify-end">
+      <%= form.submit "登録", class: "btn btn-primary mt-4" %>
+    </div>
+  <% end %>
+<% end %>
+
+<%= render "shared/settings_block" %>
