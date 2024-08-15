@@ -24,6 +24,13 @@ class FeedsController < ApplicationController
     end
   end
 
+  def destroy
+    @feed = Feed.find(params[:id])
+    @feed.destroy!
+
+    redirect_to feeds_path, notice: "フィードを削除しました。"
+  end
+
   private
 
   def fetch_feed(url)

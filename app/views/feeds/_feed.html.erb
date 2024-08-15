@@ -1,6 +1,9 @@
-<div class="mb-4">
-  <div class="font-bold">
-    <%= feed.title %>
+<div class="flex justify-between items-center mb-4 pb-2 border-b">
+  <div>
+    <div class="font-bold">
+      <%= feed.title %>
+    </div>
+    <%= link_to feed.url, feed.url, class: "text-sm" %>
   </div>
-  <%= link_to feed.url, feed.url, class: "text-sm" %>
+  <%= button_to "削除", feed_path(feed), method: :delete, class: "btn btn-red", data: { turbo_confirm: "削除しますか？" } %>
 </div>
