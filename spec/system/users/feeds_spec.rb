@@ -21,7 +21,12 @@ RSpec.describe "フィード登録機能" do
       context "正しくないURLの場合" do
         it "登録できない" do
           visit new_feed_path
-          fill_in "feed_url", with: "http://example.com/feed"
+          fill_in "feed_url", with: "http://invalid.com/feed"
+
+          expect do
+            click_button "登録"
+            expect(page).to have_content "フィードの取得に失敗しました"
+          end.to change(Feed, :count).by(0)
         end
       end
 
