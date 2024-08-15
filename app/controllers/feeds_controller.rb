@@ -26,12 +26,9 @@ class FeedsController < ApplicationController
 
   def destroy
     @feed = Feed.find(params[:id])
-    puts "#######"
-    puts @feed.title
-    puts "#######"
     @feed.destroy!
 
-    redirect_to feeds_path, status: :see_other
+    redirect_to feeds_path, notice: "フィードを削除しました。"
   end
 
   private
