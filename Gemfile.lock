@@ -123,6 +123,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
+    docile (1.4.1)
     drb (2.2.1)
     erb_lint (0.5.0)
       activesupport
@@ -335,6 +336,12 @@ GEM
       logger
       rack (>= 2.2.4)
       redis-client (>= 0.22.2)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     smart_properties (1.17.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -413,6 +420,7 @@ DEPENDENCIES
   redis (>= 4.0.1)
   rspec-rails
   sidekiq
+  simplecov
   sprockets-rails
   standard
   stimulus-rails
