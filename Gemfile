@@ -68,5 +68,5 @@ end
 group :test do
   gem "capybara"
   gem "capybara-playwright-driver"
-  gem 'simplecov', require: false
+  gem "simplecov", require: false
 end
