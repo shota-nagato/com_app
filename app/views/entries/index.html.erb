@@ -1,0 +1,13 @@
+<div class="mb-4 flex justify-between items-center">
+  <div>
+    <h2 class="text-lg font-bold">
+      アウトプット
+    </h2>
+    <p class="text-sm text-slate-500">RSS機能があるブログなどのサービス (Qiita, note, Zenn など)を登録すると記事が表示されます。</p>
+  </div>
+  <div>
+    <%= link_to "登録する", feeds_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<%= render @entries %>
