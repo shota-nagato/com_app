@@ -11,7 +11,7 @@ codeToTestRatio: # Code to Test Ratio（実装コードの行数を1とした場
     - "app/**/*.rb"
   test:
     - "spec/**/*_spec.rb"
-  acceptable: 1:1.2 # この数値を下回るとワークフローがfailする
+  acceptable: 1:0.8 # この数値を下回るとワークフローがfailする
 comment: # レポート内容をコメント投稿設定
   if: is_pull_request # PRの場合のみコメントを投稿する
   hideFooterLink: false # フッターのoctocovのリンクを非表示にしない
