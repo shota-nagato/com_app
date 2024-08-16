@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :entry do
-    title { "タイトル" }
-    url { "https://example.com/xxx" }
+    sequence(:title) { |n| "タイトル#{n}" }
+    sequence(:url) { |n| "https://example.com/#{n}" }
     published_at { Time.current }
     association :feed
   end
