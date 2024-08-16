@@ -19,5 +19,5 @@ Rails.application.routes.draw do
   end
 
   resources :feeds
-  resources :entries, only: :index, :path => "outputs"
+  resources :entries, only: :index, path: "outputs"
 end
