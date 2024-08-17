@@ -6,10 +6,10 @@ class FetchEntriesJob
     Feed.all.each do |feed|
       response = Faraday.get(feed.url)
       rss = Feedjira.parse(response.body)
-      rss.entries.each do |entry|
-        # 前日に投稿されたエントリーを保存する
-        if entry.published.to_date == Date.yesterday
-          feed.entries.find_or_create_by(title: entry.title, url: entry.url, published_at: entry.published)
+      rss.entries.each do |rss_entry|
+        entry = feed.entries.find_or_create_by(title: rss_entry.title, url: rss_entry.url, published_at: rss_entry.published)
+        if rss_entry.image.present?
+          entry.update!(image_url: rss_entry.image)
         end
       end
     end
