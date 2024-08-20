@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def flash_color(key)
     case key.to_sym
     when :notice

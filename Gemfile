@@ -50,6 +50,7 @@ gem "image_processing", "~> 1.2"
 gem "devise"
 gem "faraday"
 gem "feedjira"
+gem "pagy"
 gem "sidekiq"
 
 group :development, :test do
