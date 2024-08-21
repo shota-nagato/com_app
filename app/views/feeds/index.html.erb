@@ -1,5 +1,6 @@
 <%= content_for :settings_block do %>
-  <h2 class="font-bold text-lg mb-4">RSSフィード<h2>
+  <h2 class="font-bold text-lg">RSSフィード<h2>
+  <p class="text-xs text-slate-500 mb-4">登録後「更新」ボタンを押すことで記事を取得できます。</p>
 
   <% if @feeds.empty? %>
     <div class="text-slate-400 text-sm">登録中のRSSフィードはありません。</div>

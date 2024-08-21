@@ -3,8 +3,16 @@
     @apply font-bold py-2 px-4 rounded hover:cursor-pointer;
   }
 
+  .btn-sm {
+    @apply font-bold py-1 px-2 rounded hover:cursor-pointer
+  }
+
   .btn-primary {
     @apply text-white bg-primary hover:opacity-90;
+  }
+
+  .btn-primary-outline {
+    @apply text-primary outline outline-primary;
   }
 
   .btn-red {
