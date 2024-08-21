@@ -12,7 +12,7 @@
       </svg>
       <%= l(feed.updated_at.to_time, format: :long) %>
     </div>
-    <div class="flex items-center justify-end gap-4">
+    <div class="flex items-center justify-end gap-2">
       <%= button_to "更新", feeds_update_path(id: feed.id), method: :put, class: "btn-sm btn-primary-outline" %>
       <%= button_to "解除", feed_path(feed), method: :delete, class: "btn-sm btn-red", data: { turbo_confirm: "解除しますか？" } %>
     </div>
