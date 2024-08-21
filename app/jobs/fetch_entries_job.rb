@@ -20,6 +20,6 @@ class FetchEntriesJob
 
   def fetch_rss(feed)
     response = Faraday.get(feed.url)
-    rss = Feedjira.parse(response.body)
+    Feedjira.parse(response.body)
   end
 end
