@@ -1,8 +1,8 @@
-<div class="mb-2 flex gap-2">
+<div class="mb-2 flex items-center gap-2">
   <%= link_to entry.url, target: "_blank", class: "shrink-0" do %>
-    <%= image_tag entry_image_url(entry), class: "w-[90px] h-[90px] object-cover rounded shadow" %>
+    <%= image_tag entry_image_url(entry), class: "w-[90px] h-[60px] object-cover rounded shadow" %>
   <% end %>
-  <div class="pt-2">
+  <div>
     <%= link_to entry.url, target: "_blank" do %>
       <div class="entry-title text-md font-bold px-2 mb-2"><%= entry.title %></div>
     <% end %>
