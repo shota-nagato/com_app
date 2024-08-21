@@ -7,6 +7,10 @@
     @apply text-white bg-primary hover:opacity-90;
   }
 
+  .btn-primary-outline {
+    @apply text-primary border border-primary;
+  }
+
   .btn-red {
     @apply text-white bg-red-500 hover:opacity-90;
   }
