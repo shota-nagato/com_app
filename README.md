@@ -35,6 +35,11 @@ docker compose up
 
 | 一覧 | 作成 |
 | ---- | ---- |
-| <img width="1072" alt="image" src="https://github.com/user-attachments/assets/df5d567b-1b48-443d-94b4-b4bf7a851910"> | <img width="1077" alt="image" src="https://github.com/user-attachments/assets/5812e4fd-5d48-4edb-b682-0f5e13cff244"> |
+| <img width="400" alt="image" src="https://github.com/user-attachments/assets/ca8e53f6-3527-4189-acea-92422f8f83aa"> | <img width="400" alt="image" src="https://github.com/user-attachments/assets/2a594027-e897-4fed-b356-8e8ae8093b33"> |
+
+### アウトプット(各ユーザーのフィード投稿)表示
+| 一覧 |
+| ---- |
+| <img width="400" alt="image" src="https://github.com/user-attachments/assets/d46c4ce2-3244-463a-b23a-15433acf1bff"> |
 
 作成中...
