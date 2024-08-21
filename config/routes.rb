@@ -20,4 +20,8 @@ Rails.application.routes.draw do
 
   resources :feeds
   resources :entries, only: :index, path: "outputs"
+
+  namespace :feeds do
+    resources :update, only: :update
+  end
 end
