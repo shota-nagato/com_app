@@ -4,6 +4,6 @@ class Feeds::UpdateController < ApplicationController
   def update
     feed = current_user.feeds.find(params[:id])
     FetchEntriesJob.perform_async(feed.id)
-    redirect_to feeds_path, notice: "フィードを更新中です。"
+    redirect_to feeds_path, notice: "フィードを更新中しました"
   end
 end

@@ -28,7 +28,7 @@ class FeedsController < ApplicationController
     @feed = Feed.find(params[:id])
     @feed.destroy!
 
-    redirect_to feeds_path, notice: "フィードを削除しました。"
+    redirect_to feeds_path, notice: "フィードを解除しました。"
   end
 
   private

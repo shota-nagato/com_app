@@ -52,11 +52,11 @@ RSpec.describe "フィード登録機能" do
         visit feeds_path
 
         expect do
-          accept_confirm("削除しますか？") do
-            click_button "削除"
+          accept_confirm("解除しますか？") do
+            click_button "解除"
           end
           expect(page).to have_current_path feeds_path
-          expect(page).to have_content "フィードを削除しました"
+          expect(page).to have_content "フィードを解除しました"
         end.to change(Feed, :count).by(-1)
       end
     end
