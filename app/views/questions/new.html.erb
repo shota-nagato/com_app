@@ -11,13 +11,13 @@
   <div class="md:grid md:grid-cols-2 md:gap-4">
     <div class="form-group">
       <%= form.label :content %>
-      <%= form.text_area :content, class: "h-[300px]", data: { action: "input->markdown#convertToMarkdown" } %>
+      <%= form.text_area :content, class: "h-[400px]", data: { action: "input->markdown#convertToMarkdown" } %>
       <p class="text-xs text-gray-700">マークダウン記法が使えます。</p>
     </div>
 
     <div>
       <div class="text-gray-700 text-sm font-bold mb-2">プレビュー</div>
-        <div class="prose markdown_content shadow rounded min-h-[300px] p-2" data-markdown-target="viewer"></div>
+        <div class="prose markdown_content shadow rounded h-[400px] p-2 overflow-y-auto" data-markdown-target="viewer"></div>
     </div>
   </div>
 
