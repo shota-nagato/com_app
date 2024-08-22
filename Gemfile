@@ -52,6 +52,8 @@ gem "devise"
 gem "faraday"
 gem "feedjira"
 gem "pagy"
+gem "redcarpet"
+gem "rouge"
 gem "sidekiq"
 
 group :development, :test do

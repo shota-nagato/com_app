@@ -9,3 +9,7 @@
     <%= link_to "質問する", new_question_path, class: "btn btn-primary" %>
   </div>
 </div>
+
+<div class="grid sm:grid-cols-2 gap-4">
+  <%= render @questions %>
+</div>
