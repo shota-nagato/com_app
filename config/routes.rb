@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   namespace :feeds do
     resources :update, only: :update
   end
+
+  resources :questions
 end
