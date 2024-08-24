@@ -37,7 +37,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
       - name: Install playwright browsers
         run: |
           npm install @playwright/test
