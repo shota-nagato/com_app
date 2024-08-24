@@ -4,6 +4,7 @@ ja:
       models:
         user: ユーザー
         feed: フィード
+        question: 質問
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -33,6 +34,9 @@ ja:
       feed:
         title: タイトル
         url: フィードURL
+      question:
+        title: タイトル
+        content: 内容
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

@@ -1,0 +1,13 @@
+<div class="mb-8 flex flex-col md:flex-row md:justify-between md:items-center">
+  <div class="mb-2 md:mb-0">
+    <h2 class="text-lg font-bold">
+      なんでも質問
+    </h2>
+    <p class="text-sm text-slate-500">気軽に質問しましょう。</p>
+  </div>
+  <div class="flex justify-end">
+    <%= link_to "質問する", new_question_path, class: "btn btn-primary" %>
+  </div>
+</div>
+
+<%= render @questions %>

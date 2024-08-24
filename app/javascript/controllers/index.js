@@ -14,3 +14,6 @@ application.register('dropdown', Dropdown)
 
 import SidebarController from "./sidebar_controller"
 application.register("sidebar", SidebarController)
+
+import MarkdownController from "./markdown_controller"
+application.register("markdown", MarkdownController)
