@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.3.0"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.3", ">= 7.1.3.4"
+gem "rails", "~> 7.2.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -58,6 +58,7 @@ gem "rouge"
 gem "sidekiq"
 
 group :development, :test do
+  gem "brakeman", require: false
   gem "debug", platforms: %i[mri windows]
   gem "rspec-rails"
   gem "factory_bot_rails"
