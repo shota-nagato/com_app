@@ -8,13 +8,13 @@ module MarkdownHelper
   def markdown(text)
     options = {
       with_toc_data: true,
-      hard_wrap:     true,
+      hard_wrap: true
     }
     extensions = {
       tables: true,
       fenced_code_blocks: true,
       heighlight: true,
-      space_after_headers: true,
+      space_after_headers: true
     }
 
     renderer = CustomRenderHTML.new(options)
