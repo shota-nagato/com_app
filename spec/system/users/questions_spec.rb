@@ -30,19 +30,30 @@ RSpec.describe "質問投稿機能" do
       end
     end
 
-    describe "編集" do
+    describe "編集・解決" do
       let(:question) { create(:question, user:) }
       let(:other_user) { create(:user) }
 
       context "投稿したユーザーの場合" do
-        it "詳細ページに編集ボタンが表示される" do
+        it "詳細ページに編集ボタン・解決ボタンが表示される" do
           visit question_path(question)
           expect(page).to have_content "編集"
+          expect(page).to have_content "解決済みにする"
         end
 
         it "編集ページにアクセスできる" do
           visit edit_question_path(question)
           expect(page).to have_current_path edit_question_path(question)
+        end
+
+        it "解決済みにできる" do
+          visit question_path(question)
+
+          accept_confirm("解決済みにしますか？") do
+            click_button "解決済みにする"
+            expect(page).to have_content "質問を解決済みにしました"
+            expect(question.reload.solved_at).not_to be(nil)
+          end
         end
       end
 
@@ -51,9 +62,10 @@ RSpec.describe "質問投稿機能" do
           sign_in other_user
         end
 
-        it "詳細ページに編集ボタンが表示されない" do
+        it "詳細ページに編集ボタン・解決が表示されない" do
           visit question_path(question)
           expect(page).not_to have_content "編集"
+          expect(page).not_to have_content "解決済みにする"
         end
 
         it "編集ページにアクセスできない" do

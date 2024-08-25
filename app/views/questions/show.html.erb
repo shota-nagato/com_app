@@ -1,8 +1,11 @@
 <div class="py-2 px-4 shadow rounded">
   <div class="flex items-center justify-between">
-    <h2 class="text-lg font-bold mb-2">
-      <%= @question.title %>
-    </h2>
+    <div class="flex items-center gap-1 mb-2">
+      <%= icon(question_status_text(@question), css: "size-6 text-#{question_status_color(@question)}") %>
+      <h2 class="text-lg font-bold">
+        <%= @question.title %>
+      </h2>
+    </div>
     <% if current_user == @question.user %>
       <%= link_to edit_question_path(@question), class: "flex items-center gap-2" do %>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -28,7 +31,10 @@
     </div>
   </div>
 
-  <div class="prose markdown_content text-sm">
+  <div class="prose markdown_content text-sm mb-2">
     <%= markdown(@question.content) %>
+  </div>
+  <div class="text-right">
+    <%= button_to "解決済みにする", question_solve_path(@question), method: :put, class: "btn-sm btn-red", data: { turbo_confirm: "解決済みにしますか？" } if current_user == @question.user && !@question.solved? %>
   </div>
 </div>
