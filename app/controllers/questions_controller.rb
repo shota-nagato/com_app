@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_question, only: [:show, :edit]
+  before_action :set_question, only: [:show, :edit, :update]
 
   def index
     @questions = Question.preload(:user).order(created_at: :desc)
@@ -23,6 +23,14 @@ class QuestionsController < ApplicationController
       redirect_to questions_path, notice: "質問を投稿しました。"
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @question.update(question_params)
+      redirect_to question_path, notice: "質問を編集しました。"
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
