@@ -25,5 +25,7 @@ Rails.application.routes.draw do
     resources :update, only: :update
   end
 
-  resources :questions
+  resources :questions do
+    resources :solve, only: :update, module: :questions
+  end
 end
