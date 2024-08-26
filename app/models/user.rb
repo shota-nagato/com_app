@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :feeds, dependent: :destroy
   has_many :questions, dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
