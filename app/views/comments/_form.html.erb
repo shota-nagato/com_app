@@ -1,0 +1,21 @@
+<%= form_with(model: [comment.commentable, comment], class: "mt-4", data: { controller: "markdown" }) do |form| %>
+  <%= render "shared/error_messages", resource: comment %>
+
+  <div class="md:grid md:grid-cols-2 md:gap-4">
+    <div class="form-group">
+      <%= form.label "コメント" %>
+      <%= form.text_area :content, class: "h-[200px]", data: { action: "input->markdown#convertToMarkdown" } %>
+      <p class="text-xs text-gray-700">マークダウン記法が使えます。</p>
+    </div>
+
+    <div>
+      <div class="text-gray-700 text-sm font-bold mb-2">プレビュー</div>
+        <div class="prose markdown_content shadow rounded h-[200px] p-2 overflow-y-auto" data-markdown-target="viewer"></div>
+    </div>
+  </div>
+
+  <div class="flex justify-end">
+    <%= form.submit "コメント", class: "btn btn-primary mt-4" %>
+  </div>
+<% end %>
+.
