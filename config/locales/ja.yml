@@ -5,6 +5,7 @@ ja:
         user: ユーザー
         feed: フィード
         question: 質問
+        comment: コメント
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
@@ -36,6 +37,8 @@ ja:
         url: フィードURL
       question:
         title: タイトル
+        content: 内容
+      comment:
         content: 内容
     errors:
       messages:

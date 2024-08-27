@@ -1,4 +1,4 @@
-<div class="py-2 px-4 shadow rounded">
+<div class="py-2 px-4 shadow rounded mb-4">
   <div class="flex items-center justify-between">
     <div class="flex items-center gap-1 mb-2">
       <%= icon(question_status_text(@question), css: "size-6 text-#{question_status_color(@question)}") %>
@@ -38,3 +38,6 @@
     <%= button_to "解決済みにする", question_solve_path(@question), method: :put, class: "btn-sm btn-red", data: { turbo_confirm: "解決済みにしますか？" } if current_user == @question.user && !@question.solved? %>
   </div>
 </div>
+
+<%= turbo_frame_tag :comments, src: question_comments_path(@question) %>
+<%= turbo_frame_tag :new_comment_frame, src: new_question_comment_path(@question) %>
