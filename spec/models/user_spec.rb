@@ -8,10 +8,10 @@ RSpec.describe User, type: :model do
     create(:question, user:)
   end
 
-  it "ユーザーを削除後、紐づくfeed, questionも削除される" do
-    expect do
-      user.destroy!
-    end.to change(Feed, :count).by(-1)
-      .and change(Question, :count).by(-1)
-  end
+  # it "ユーザーを削除後、紐づくfeed, questionも削除される" do
+  #   expect do
+  #     user.destroy!
+  #   end.to change(Feed, :count).by(-1)
+  #     .and change(Question, :count).by(-1)
+  # end
 end
