@@ -1,0 +1,10 @@
+<div class="px-3 py-2 shadow rounded mb-4">
+  <%= link_to notification.event.url do %>
+    <div class="font-bold">
+      <%= notification.event.message %>
+    </div>
+    <div class="text-slate-500 text-sm">
+      <%= l(notification.created_at.to_time, format: :long) %>
+    </div>
+  <% end %>
+</div>
