@@ -30,10 +30,6 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-    env:
-      RAILS_ENV: test
-      DATABASE_URL: "postgres://postgres:postgres@localhost:5432/test"
-      REDIS_URL: redis://localhost:6379/0
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -65,14 +61,15 @@ jobs:
       - name: Yarn install
         run: yarn install --check-files
 
-      - name: Database create and migrate
-        run: |
-          bundle exec rails db:migrate
-      - name: Assets precompile
-        run: bundle exec rails assets:precompile
-
       - name: Run rspec
-        run: bundle exec rspec
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: "postgres://postgres:postgres@localhost:5432/test"
+          REDIS_URL: redis://localhost:6379/0
+        run: |
+          bin/rails db:test:prepare
+          bundle exec rails assets:precompile
+          bundle exec rspec
 
       - name: Coverage Report by octocov (in this pull request)
         uses: k1LoW/octocov-action@v1
