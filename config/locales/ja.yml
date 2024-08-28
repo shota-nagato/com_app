@@ -1,11 +1,11 @@
 ja:
   activerecord:
+    models:
+      user: ユーザー
+      feed: フィード
+      question: 質問
+      comment: コメント
     attributes:
-      models:
-        user: ユーザー
-        feed: フィード
-        question: 質問
-        comment: コメント
       user:
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
