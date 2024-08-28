@@ -35,6 +35,6 @@ class Questions::CommentsController < ApplicationController
   end
 
   def set_comments
-    @comments = @question.comments.preload!(:user).order(:created_at)
+    @comments = @question.comments.preload!(user: {avatar_attachment: :blob}).order(:created_at)
   end
 end
