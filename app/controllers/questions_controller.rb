@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update]
 
   def index
-    @questions = Question.preload(:user).order(created_at: :desc)
+    @questions = Question.preload(:user, :comments).order(created_at: :desc)
   end
 
   def show
