@@ -20,7 +20,6 @@ class Questions::CommentsController < ApplicationController
   def create
     @comment = @question.comments.build(comment_params.merge(user: current_user))
     if @comment.save
-      flash.now[:notice] = "コメントしました。"
       @new_comment = @question.comments.build(user: current_user)
       respond_to do |format|
         format.turbo_stream { render "comments/create" }
@@ -32,9 +31,11 @@ class Questions::CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to question_comments_path(@question), notice: "コメントを更新しました。"
+      respond_to do |format|
+        format.turbo_stream { render "comments/update" }
+      end
     else
-      render :edit, status: :unprocessable_entity
+      render "comments/edit"
     end
   end
 
