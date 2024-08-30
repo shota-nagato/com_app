@@ -55,5 +55,6 @@ class Questions::CommentsController < ApplicationController
 
   def set_comment
     @comment = current_user.comments.find(params[:id])
+    authorize @comment
   end
 end
