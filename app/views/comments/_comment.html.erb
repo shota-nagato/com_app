@@ -15,7 +15,7 @@
           <%= comment.created_at.to_date %>
         </div>
       </div>
-      <% if current_user == comment.user %>
+      <% if true %>
         <%= link_to edit_question_comment_path(comment.commentable, comment) do %>
           <div class="flex items-center gap-1">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
