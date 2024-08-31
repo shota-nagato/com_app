@@ -2,7 +2,7 @@
   <div class="flex items-center gap-2 mb-2">
     <%= icon(question_status_text(question), css: "size-6 text-#{question_status_color(question)}") %>
     <div class="font-bold text-md">
-      <%= link_to question.title, question_path(question) %>
+      <%= link_to question.title, question_path(question), data: { turbo: false } %>
     </div>
   </div>
   <div class="flex items-center gap-2 ml-[32px]">
