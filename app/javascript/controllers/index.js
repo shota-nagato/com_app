@@ -17,3 +17,6 @@ application.register("sidebar", SidebarController)
 
 import MarkdownController from "./markdown_controller"
 application.register("markdown", MarkdownController)
+
+import DebounceController from "./debounce_controller"
+application.register("debounce", DebounceController)

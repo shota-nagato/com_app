@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :questions do
     resources :solve, only: :update, module: :questions
     resources :comments, module: :questions
+    collection do
+      post :search
+    end
   end
 
   resources :notifications, only: :index
