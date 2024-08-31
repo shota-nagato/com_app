@@ -8,9 +8,9 @@ RSpec.describe Question, type: :model do
     create(:comment, user:, commentable: question)
   end
 
-  # it "質問を削除後、紐付くコメントも削除される" do
-  #   expect do
-  #     question.destroy!
-  #   end.to change(Comment, :count).by(-1)
-  # end
+  it "質問を削除後、紐付くコメントも削除される" do
+    expect do
+      question.destroy!
+    end.to change(Comment, :count).by(-1)
+  end
 end
