@@ -1,7 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true, touch: true
   belongs_to :user
-  has_noticed_notifications model_name: "Noticed::Event"
   has_many :notification_mentions, as: :record, dependent: :destroy, class_name: "Noticed::Event"
 
   validates :content, presence: true
