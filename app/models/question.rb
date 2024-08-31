@@ -6,7 +6,7 @@ class Question < ApplicationRecord
 
   validates :title, :content, presence: true
 
-  scope :by_keyword, ->(title) { where("title ILIKE ?", "%#{title}%") }
+  scope :by_keyword, ->(title) { where(arel_table[:title].matches("%#{sanitize_sql_like(title)}%")) }
 
   def solved?
     !solved_at.nil?
