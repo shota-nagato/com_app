@@ -1,6 +1,7 @@
 <%= turbo_stream.append(:comments) do %>
   <%= render partial: "comments/comment", collection: @comments %>
 <% end %>
+<%= turbo_stream.update "flash", partial: "shared/flash" %>
 <%= turbo_stream.replace(:new_comment_frame) do %>
   <%= turbo_frame_tag :new_comment_frame do %>
     <%= render "comments/form", comment: @new_comment %>
