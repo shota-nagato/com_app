@@ -9,71 +9,67 @@ on:
       - main
 
 jobs:
-  # rspec:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 10
-  #   services:
-  #     postgres:
-  #       image: postgres
-  #       ports:
-  #         - 5432:5432
-  #       options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-  #       env:
-  #         POSTGRES_DB: test
-  #         POSTGRES_USER: postgres
-  #         POSTGRES_PASSWORD: postgres
-  #     redis:
-  #       image: redis
-  #       ports:
-  #         - 6379:6379
-  #       options: >-
-  #         --health-cmd "redis-cli ping"
-  #         --health-interval 10s
-  #         --health-timeout 5s
-  #         --health-retries 5
-    # steps:
-    #   - name: Checkout code
-    #     uses: actions/checkout@v4
+  rspec:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    services:
+      postgres:
+        image: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        env:
+          POSTGRES_DB: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+      redis:
+        image: redis
+        ports:
+          - 6379:6379
+        options: --entrypoint redis-server
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    #   - name: Cache node modules
-    #     uses: actions/cache@v4
-    #     with:
-    #       path: node_modules
-    #       key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-    #       restore-keys: |
-    #         ${{ runner.os }}-node-
+      - name: Cache node modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    #   - uses: actions/setup-node@v4
-    #   - name: Install playwright browsers
-    #     run: |
-    #       npm install @playwright/test
-    #       npx playwright install --with-deps chromium
+      - uses: actions/setup-node@v4
+      - name: Install playwright browsers
+        run: |
+          yarn add @playwright/test
+          npx playwright install --with-deps chromium
 
-    #   - name: Set up Ruby
-    #     uses: ruby/setup-ruby@v1
-    #     with:
-    #       bundler-cache: true
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
-    #   - name: Bundler and gem install
-    #     run: |
-    #       gem install bundler
-    #       bundle install --jobs 4 --retry 3 --path vendor/bundle
+      - name: Bundler and gem install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3 --path vendor/bundle
 
-    #   - name: Yarn install
-    #     run: yarn install --check-files
+      - name: Yarn install
+        run: yarn install --check-files
 
-    #   - name: Run rspec
-    #     env:
-    #       RAILS_ENV: test
-    #       DATABASE_URL: "postgres://postgres:postgres@localhost:5432/test"
-    #       REDIS_URL: redis://localhost:6379/0
-    #     run: |
-    #       bin/rails db:test:prepare
-    #       bundle exec rails assets:precompile
-    #       bundle exec rspec
+      - name: Run rspec
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: "postgres://postgres:postgres@localhost:5432/test"
+          REDIS_URL: redis://localhost:6379
+        run: |
+          bin/rails db:test:prepare
+          bundle exec rails assets:precompile
+          bundle exec rspec
 
-    #   - name: Coverage Report by octocov (in this pull request)
-    #     uses: k1LoW/octocov-action@v1
+      - name: Coverage Report by octocov (in this pull request)
+        uses: k1LoW/octocov-action@v1
 
   standardrb:
     runs-on: ubuntu-latest
