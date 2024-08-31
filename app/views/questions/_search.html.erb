@@ -1,0 +1,7 @@
+<%= form_with url: search_questions_path, method: :post, data: { controller: "debounce", debounce_target: "form" }, class: "flex justify-end" do |form| %>
+  <div class="form-group w-[50%]">
+    <%= form.search_field :title_search, placeholder: "キーワード検索", data: { action: "input->debounce#search" } %>
+  </div>
+<% end %>
+
+<div id="search_result"></div>

@@ -34,6 +34,19 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def search
+    @questions = Question.by_keyword(params[:title_search])
+    respond_to do |format|
+      format.turbo_stream do
+        if @questions.count.zero?
+          render turbo_stream: turbo_stream.update(:questions, partial: "questions/not_found")
+        else
+          render turbo_stream: turbo_stream.update(:questions, partial: "questions/question", collection: @questions)
+        end
+      end
+    end
+  end
+
   private
 
   def question_params
