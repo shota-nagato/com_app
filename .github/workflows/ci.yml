@@ -14,19 +14,25 @@ jobs:
     timeout-minutes: 10
     services:
       postgres:
-        image: postgres
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        image: postgres:latest
         env:
-          POSTGRES_DB: test
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: test
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
       redis:
         image: redis
-        ports:
-          - 6379:6379
-        options: --entrypoint redis-server
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -62,7 +68,7 @@ jobs:
         env:
           RAILS_ENV: test
           DATABASE_URL: "postgres://postgres:postgres@localhost:5432/test"
-          REDIS_URL: redis://redis:6379
+          REDIS_URL: redis://localhost:6379/0
         run: |
           bin/rails db:test:prepare
           bundle exec rails assets:precompile
