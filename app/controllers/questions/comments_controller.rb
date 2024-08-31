@@ -20,6 +20,7 @@ class Questions::CommentsController < ApplicationController
   def create
     @comment = @question.comments.build(comment_params.merge(user: current_user))
     if @comment.save
+      flash.now.notice = "コメントを投稿しました。"
       @new_comment = @question.comments.build(user: current_user)
       respond_to do |format|
         format.turbo_stream { render "comments/create" }
@@ -31,6 +32,7 @@ class Questions::CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
+      flash.now.notice = "コメントを編集しました。"
       respond_to do |format|
         format.turbo_stream { render "comments/update" }
       end
