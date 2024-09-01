@@ -5,7 +5,7 @@
     <div class="md:grid md:grid-cols-2 md:gap-4">
       <div class="form-group">
         <%= form.label "コメント" %>
-        <%= form.text_area :content, class: "h-[200px]", data: { action: "input->markdown#convertToMarkdown" } %>
+        <%= form.text_area :content, id: "markdown_content", class: "h-[200px]", data: { action: "input->markdown#convertToMarkdown" } %>
         <p class="text-xs text-gray-700">マークダウン記法が使えます。</p>
       </div>
 
