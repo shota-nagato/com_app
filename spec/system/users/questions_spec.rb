@@ -22,7 +22,7 @@ RSpec.describe "質問投稿機能" do
         visit new_question_path
 
         fill_in "question_title", with: "タイトル"
-        fill_in "question_content", with: "内容"
+        fill_in "markdown_content", with: "内容"
         expect do
           click_button "投稿"
           expect(page).to have_content "質問を投稿しました"

@@ -22,7 +22,7 @@ RSpec.describe "質問へのコメント投稿機能" do
       it "質問に対するコメントを投稿できる" do
         visit question_path(question)
 
-        fill_in "comment_content", with: "コメントです"
+        fill_in "markdown_content", with: "コメントです"
         expect do
           click_button "コメント"
           expect(page).to have_content "コメントです"
