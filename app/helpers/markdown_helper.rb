@@ -11,6 +11,7 @@ module MarkdownHelper
       hard_wrap: true
     }
     extensions = {
+      autolink: true,
       tables: true,
       fenced_code_blocks: true,
       heighlight: true,
