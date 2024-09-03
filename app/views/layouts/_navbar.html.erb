@@ -27,21 +27,25 @@
             data-transition-enter-to="opacity-100 scale-100"
             data-transition-leave-from="opacity-100 scale-100"
             data-transition-leave-to="opacity-0 scale-95">
-            <ul>
-              <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
-                <li class="py-1">
-                  <%= link_to notification.event.url do %>
-                    <div class="text-xs text-slate-500">
-                      <%= notification.event.message %>
-                    </div>
-                  <% end %>
-                  <hr class="bg-slate-300 my-2">
-                </li>
-              <% end %>
-            </ul>
-            <div class="text-sm text-right text-slate-500">
-              <%= link_to "全て見る", notifications_path %>
-            </div>
+            <% if current_user.notifications.size.zero? %>
+              <div class="text-sm text-slate-500">通知はありません。</div>
+            <% else %>
+              <ul>
+                <% current_user.notifications.order(created_at: :desc).limit(5).each do |notification| %>
+                  <li class="py-1">
+                    <%= link_to notification.event.url do %>
+                      <div class="text-xs text-slate-500">
+                        <%= notification.event.message %>
+                      </div>
+                    <% end %>
+                    <hr class="bg-slate-300 my-2">
+                  </li>
+                <% end %>
+              </ul>
+              <div class="text-sm text-right text-slate-500">
+                <%= link_to "全て見る", notifications_path %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
