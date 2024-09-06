@@ -21,12 +21,12 @@ Rails.application.routes.draw do
   resources :feeds
   resources :entries, only: :index, path: "outputs"
 
-  namespace :feeds do
-    resources :update, only: :update
+  resources :feeds do
+    resource :update, only: :update, module: :feeds
   end
 
   resources :questions do
-    resources :solve, only: :update, module: :questions
+    resource :solve, only: :update, module: :questions
     resources :comments, module: :questions
     collection do
       post :search
