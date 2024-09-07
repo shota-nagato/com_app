@@ -1,0 +1,51 @@
+<div>
+  <div
+    id="sidebar-background"
+    class="fixed inset-0 bg-slate-900 bg-opacity-30 z-40 md:hidden bg-opacity-30 opacity-0 pointer-events-none"
+    data-controller="sidebar"
+    data-action="click->sidebar#close">
+  </div>
+  <div id="sidebar" class="absolute left-0 top-0 z-50 bg-primary md:w-[200px] overflow-y-hidden h-screen p-4 bg-sidebar text-white md:block md:static transition-all duration-500 ease-in-out md:translate-x-0 -translate-x-64">
+    <div class="flex items-center justify-between px-2">
+      <button
+        class="text-slate-500 hover:text-slate-200 md:hidden"
+        data-controller="sidebar"
+        data-action="sidebar#close">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+        </svg>
+      </button>
+    </div>
+    <div class="text-slate-500 text-sm px-2 mt-8">
+      MENU
+    </div>
+
+    <ul>
+      <li class="mt-4">
+        <%= link_to admin_root_path do %>
+          <div class="p-2 flex items-center gap-2 rounded text-sm font-bold hover:bg-sidebar-hover">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
+              </svg>
+            </div>
+            <div class="">
+              ダッシュボード
+            </div>
+          </div>
+        <% end %>
+      </li>
+      <li class="mt-4">
+        <%= link_to "#" do %>
+          <div class="p-2 flex items-center gap-2 rounded text-sm font-bold hover:bg-sidebar-hover">
+            <div class="w-6 h-6 p-[1px]">
+            </div>
+            <div class="">
+              駐輪場一覧
+            </div>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
