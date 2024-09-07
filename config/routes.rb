@@ -33,5 +33,9 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :markdown do
+    resource :preview, only: :create
+  end
+
   resources :notifications, only: :index
 end

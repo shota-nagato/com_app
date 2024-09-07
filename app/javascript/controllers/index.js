@@ -6,17 +6,20 @@ import { application } from "./application"
 import Notification from "@stimulus-components/notification"
 import Dropdown from "@stimulus-components/dropdown"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 application.register('notification', Notification)
 application.register('dropdown', Dropdown)
 
-import SidebarController from "./sidebar_controller"
-application.register("sidebar", SidebarController)
+import DebounceController from "./debounce_controller"
+application.register("debounce", DebounceController)
+
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
 
 import MarkdownController from "./markdown_controller"
 application.register("markdown", MarkdownController)
 
-import DebounceController from "./debounce_controller"
-application.register("debounce", DebounceController)
+import MarkdownUploadController from "./markdown_upload_controller"
+application.register("markdown-upload", MarkdownUploadController)
+
+import SidebarController from "./sidebar_controller"
+application.register("sidebar", SidebarController)
