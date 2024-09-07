@@ -4,6 +4,6 @@ class Admin::ApplicationController < ActionController::Base
   layout "admin/application"
 
   def authenticate_admin
-    redirect_to "/", alert: "Not authorized." unless user_signed_in? && current_user.admin?
+    redirect_to root_path unless user_signed_in? && current_user.admin?
   end
 end
