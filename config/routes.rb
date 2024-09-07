@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  authenticated :user, ->(u) { u.admin? } do
+    namespace :admin do
+      root to: "dashboard#show"
+    end
+  end
+
   authenticated :user do
     root to: "dashboard#show", as: :user_root
   end

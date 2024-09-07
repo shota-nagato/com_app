@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ComApp | Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+  </head>
+
+  <body>
+    <div class="flex h-screen overflow-hidden">
+      <%= render "layouts/admin/sidebar" %>
+
+      <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden mb-4">
+        <%= render "layouts/admin/navbar" %>
+        <%= render "shared/flash" %>
+        <main class="container mx-auto px-2">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
