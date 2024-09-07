@@ -1,15 +1,26 @@
 import { Controller } from "@hotwired/stimulus"
-import { marked } from "marked"
-marked.setOptions({ breaks: true })
 
 export default class extends Controller {
-  static targets = ["viewer"]
+  static targets = ["input", "preview"]
 
   connect() {
-    this.viewerTarget.innerHTML = marked(document.getElementById("markdown_content").innerHTML, { sanitize: true })
+    this.preview()
   }
 
-  convertToMarkdown(event) {
-    this.viewerTarget.innerHTML = marked(event.target.value, { sanitize: true })
+  preview() {
+    const content = this.inputTarget.value
+
+    fetch("/markdown/preview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ content: content })
+    })
+    .then(response => response.json())
+    .then(data => {
+      this.previewTarget.innerHTML = data.html
+    })
+    .catch(error => console.error("error:", error))
   }
 }
