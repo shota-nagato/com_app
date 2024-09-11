@@ -15,6 +15,7 @@ RSpec.describe "フィード登録機能" do
 
     before do
       sign_in user
+      WebMock.allow_net_connect!
     end
 
     describe "新規登録" do
