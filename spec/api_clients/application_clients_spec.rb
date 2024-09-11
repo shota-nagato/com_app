@@ -6,6 +6,6 @@ RSpec.describe ApplicationClient, type: :request do
   end
 
   it "authorization header" do
-    stub_request(:get, "https://example.org/").with(headers: { "Authorization" => "Bearer test" }).to_return(status: 200, body: "")
+    stub_request(:get, "https://example.org/").with(headers: {"Authorization" => "Bearer test"}).to_return(status: 200, body: "")
   end
 end

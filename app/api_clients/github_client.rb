@@ -2,7 +2,7 @@ class GithubClient < ApplicationClient
   BASE_URI = "https://api.github.com"
 
   def current_user
-    get "/user", query: { access_token: token }
+    get "/user", query: {access_token: token}
   end
 
   def default_headers
