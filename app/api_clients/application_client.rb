@@ -44,22 +44,33 @@ class ApplicationClient
 
   def make_request(klass, path, query: {}, headers: {}, body: {})
     uri = URI("#{base_uri}#{path}")
+    "############"
+    puts uri
+    "############"
     uri.query = Rack::Utils.build_query(query) if query
 
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = uri.instance_of?(URI::HTTPS)
 
+    puts default_headers
     request = klass.new(uri.request_uri, default_headers)
+    puts "#############"
+    puts request
+    puts "#############"
     if body.present?
       request.body = body.to_json
       request["Content-Type"] = "application/json"
     end
 
     response = http.request(request)
+    puts '#######'
+    puts response.body
+    puts '#######'
     case response.code
     when "200", "201", "202", "203", "204"
       JSON.parse(response.body) if response.body.present?
     else
+      puts response.body
       raise Error, response.body
     end
   end
