@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_08_26_151641) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_12_121925) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,15 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_26_151641) do
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end
 
+  create_table "integrations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name", null: false
+    t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_integrations_on_user_id_and_name", unique: true
+  end
+
   create_table "noticed_events", force: :cascade do |t|
     t.string "type"
     t.string "record_type"
@@ -132,5 +141,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_08_26_151641) do
   add_foreign_key "comments", "users"
   add_foreign_key "entries", "feeds"
   add_foreign_key "feeds", "users"
+  add_foreign_key "integrations", "users"
   add_foreign_key "questions", "users"
 end

@@ -1,0 +1,17 @@
+<% integration = current_user.integration(name) %>
+
+<div class="border-b mb-2 py-2">
+  <div class="flex justify-between items-center">
+    <div class="font-bold"><%= name %></div>
+    <% if integration.present? %>
+      <div class="flex justify-end items-center gap-2">
+        <div class="text-slate-500">
+          *********************
+        </div>
+        <%= button_to "解除", integration_path(integration), method: :delete, class: "btn-sm btn-red", data: { turbo_confirm: "解除しますか？" } %>
+      </div>
+    <% else %>
+      <%= link_to "連携", new_integration_path(name: name), class: "btn-sm btn-primary-outline" %>
+    <% end %>
+  </div>
+</div>

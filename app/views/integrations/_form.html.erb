@@ -1,0 +1,15 @@
+<div class="border-b mb-2 py-2">
+  <div class="flex justify-between items-center">
+    <%= form_with(model: integration, html: { class: "w-full" }) do |form| %>
+      <%= render "shared/error_messages", resource: integration %>
+
+      <div class="font-bold mb-2"><%= name %></div>
+      <%= form.hidden_field :name, value: name %>
+
+      <div class="flex items-center gap-2">
+        <%= form.text_field :token, class: "shadow rounded border-gray-200 w-full", placeholder: "トークン" %>
+        <%= form.submit "登録", class: "btn-sm btn-primary-outline" %>
+      </div>
+    <% end %>
+  </div>
+</div>
