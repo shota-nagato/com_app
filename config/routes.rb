@@ -44,5 +44,5 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: :index
-  resources :integrations, only: :index
+  resources :integrations
 end

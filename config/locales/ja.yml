@@ -5,6 +5,7 @@ ja:
       feed: フィード
       question: 質問
       comment: コメント
+      integration: 連携
     attributes:
       user:
         confirmation_sent_at: パスワード確認送信時刻
@@ -40,6 +41,8 @@ ja:
         content: 内容
       comment:
         content: 内容
+      integration:
+        token: トークン
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

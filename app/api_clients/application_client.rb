@@ -44,9 +44,7 @@ class ApplicationClient
 
   def make_request(klass, path, query: {}, headers: {}, body: {})
     uri = URI("#{base_uri}#{path}")
-    "############"
     puts uri
-    "############"
     uri.query = Rack::Utils.build_query(query) if query
 
     http = Net::HTTP.new(uri.host, uri.port)
@@ -63,9 +61,9 @@ class ApplicationClient
     end
 
     response = http.request(request)
-    puts '#######'
+    puts "#######"
     puts response.body
-    puts '#######'
+    puts "#######"
     case response.code
     when "200", "201", "202", "203", "204"
       JSON.parse(response.body) if response.body.present?

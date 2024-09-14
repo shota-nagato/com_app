@@ -1,11 +1,6 @@
 <% content_for :settings_block do %>
   <h2 class="font-bold text-lg mb-4">外部ツール連携</h2>
-  <div class="border-b mb-2 py-2">
-    <div class="flex justify-between items-center">
-      <div class="font-bold">Toggle Track</div>
-      <div class="btn-sm btn-primary-outline">連携する</div>
-    </div>
-  </div>
+  <%= render "integration", name: "ToggleTrack" %>
 <% end %>
 
 <%= render "shared/settings_block" %>

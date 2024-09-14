@@ -7,7 +7,7 @@ class ToggleTrackClient < ApplicationClient
 
   def default_headers
     {
-      "Authorization": "Basic #{Base64.encode64("#{token}:api_token")}"
+      Authorization: "Basic #{Base64.encode64("#{token}:api_token")}"
     }
   end
 end
