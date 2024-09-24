@@ -18,6 +18,12 @@ Rails.application.routes.draw do
     root to: "dashboard#show", as: :user_root
   end
 
+  namespace :api do
+    namespace :v1 do
+      get "health_check", to: "health_check#index"
+    end
+  end
+
   root "static#index"
 
   namespace :account do
